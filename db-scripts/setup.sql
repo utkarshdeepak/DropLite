@@ -14,7 +14,6 @@ CREATE TABLE file_chunks (
        id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
        file_id NUMBER NOT NULL,
        chunk_index INTEGER NOT NULL,
-       chunk_size NUMBER NOT NULL,
        chunk_path VARCHAR2(500) NOT NULL,
        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
