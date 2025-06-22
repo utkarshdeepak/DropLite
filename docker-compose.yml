@@ -15,6 +15,21 @@ services:
       timeout: 10s
       retries: 5
 
+  springboot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: droplite-springboot-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      oracle-db:
+        condition: service_healthy
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 10
+
 
 volumes:
   oracle-data:
