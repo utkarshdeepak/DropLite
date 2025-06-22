@@ -1,0 +1,14 @@
+services:
+  oracle-db:
+    image: container-registry.oracle.com/database/free:latest
+    container_name: droplite-oracle-db
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PWD=dropliteDBPAss
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+      - ./db-scripts:/opt/oracle/scripts/setup
+
+volumes:
+  oracle-data:

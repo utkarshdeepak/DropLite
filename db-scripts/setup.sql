@@ -1,0 +1,19 @@
+CREATE TABLE files (
+       id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+       file_name VARCHAR2(255) NOT NULL,
+       file_type VARCHAR2(20) NOT NULL,
+       file_size NUMBER NOT NULL,
+       file_path VARCHAR2(500) NOT NULL,
+       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE file_chunks (
+       id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+       file_id NUMBER NOT NULL,
+       chunk_index NUMBER NOT NULL,
+       chunk_size NUMBER NOT NULL,
+       chunk_path VARCHAR2(500) NOT NULL,
+       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+COMMIT;
