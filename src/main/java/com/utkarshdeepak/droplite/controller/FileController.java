@@ -47,7 +47,7 @@ public class FileController {
     public ResponseEntity<Map<String, Object>> initiateFile(@RequestBody InitialFileRequest request) {
         FileEntity file = new FileEntity();
         file.setName(request.getFileName());
-        file.setChunkCount(request.getTotalChuckCount());
+        file.setChunkCount(request.getTotalChunkCount());
 
         FileEntity savedFile = fileRepository.save(file);
 
@@ -96,6 +96,7 @@ public class FileController {
             }
 
             file.setPath(finalFilePath.toString());
+            file.setSize(Files.size(finalFilePath));
             fileRepository.save(file);
             fileChunkRepository.deleteByFileId(fileId);
 

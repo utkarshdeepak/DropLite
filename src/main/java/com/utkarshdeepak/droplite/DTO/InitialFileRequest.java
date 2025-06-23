@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class InitialFileRequest {
     private String fileName;
-    private int totalChuckCount;
+    private int totalChunkCount;
 }
